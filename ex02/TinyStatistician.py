@@ -12,28 +12,22 @@ class TinyStatistician():
             sum = sum + datas[i]
         return sum / m
 
-    def median(self, datas):
-        m = len(datas)
-        if m == 0:
-            return None
-        elif m == 1:
-            return datas[0]
-        else:
-            datas.sort()
-            if m % 2:
-                return datas[(m + 1) / 2]
-            else:
-                return (datas[m / 2] + datas[m / 2 + 1]) / 2
+    def median(self, x):
+        sorted_list = sorted(x)
+        median_list = int(len(sorted_list) / 2)
+        return float(sorted_list[median_list])
 
-    def quartile(self, datas, percentile):
-        pass
+    def quartile(self, x, percentile):
+        sorted_list = sorted(x)
+        n_quartile = int(len(sorted_list) / 100 * percentile)
+        return float(sorted_list[n_quartile])
 
-    def var(self, atas):
+    def var(self, datas):
         m = len(datas)
         if m == 0:
             return None
         sum = 0
-        the_mean = mean(datas)
+        the_mean = self.mean(datas)
         for i in range(m):
             sum = sum + (datas[i] - the_mean) * (datas[i] - the_mean)
         return sum / m
@@ -43,19 +37,7 @@ class TinyStatistician():
         if m == 0:
             return None
         sum = 0
-        the_mean = mean(datas)
+        the_mean = self.mean(datas)
         for i in range(m):
             sum = sum + (datas[i] - the_mean) * (datas[i] - the_mean)
-        return sqrt(sum / m)
-
-stat = TinyStatistician()
-a = [1]
-print(stat.mean(a)
-print(stat.median(a))
-print(stat.quartile(a, 25))
-print(stat.var(a))
-print(stat.std(a))
-
-
-
-)
+        return math.sqrt(sum / m)
