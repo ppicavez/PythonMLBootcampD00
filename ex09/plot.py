@@ -40,6 +40,6 @@ def plot_with_cost(x, y, theta):
     i = 0
     while i < len(x):
         plt.plot([x[i], x[i]], [y[i], y_hat[i]], 'r--')
-        i = i  + 1
+        i = i + 1
     plt.title("Cost : {}".format(cost))
     plt.show()
