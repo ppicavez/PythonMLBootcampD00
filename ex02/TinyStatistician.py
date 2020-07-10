@@ -33,11 +33,4 @@ class TinyStatistician():
         return sum / m
 
     def std(self, datas):
-        m = len(datas)
-        if m == 0:
-            return None
-        sum = 0
-        the_mean = self.mean(datas)
-        for i in range(m):
-            sum = sum + (datas[i] - the_mean) * (datas[i] - the_mean)
-        return math.sqrt(sum / m)
+        return math.sqrt(self.var(datas))
